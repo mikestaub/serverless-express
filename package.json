@@ -1,0 +1,24 @@
+{
+  "name": "serverless-express",
+  "version": "1.0.0",
+  "description": "Run express apps on AWS λ easily.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikestaub/serverless-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikestaub/serverless-express/issues"
+  },
+  "homepage": "https://github.com/mikestaub/serverless-express#readme",
+  "keywords": [
+    "Serverless",
+    "Express",
+    "Lambda",
+    "API Gateway",
+    "APIG",
+    "Nodejs"
+  ],
+  "author": "Michael Staub",
+  "license": "MIT"
+}
