@@ -70,6 +70,15 @@ var handler = function(options, callback) {
     if (callback) {
       callback(event, context);
     }
+    
+    // append query parameters
+    var params = [];
+    for (var key in event.queryParams) {
+      params.push(key + '=' + event.queryParams[key]);
+    }
+    if (params.length) {
+      event.path += '?' + params.join('&');
+    }
 
     var requestOptions = {
       method: event.method,
