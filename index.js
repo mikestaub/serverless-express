@@ -79,6 +79,13 @@ var handler = function(options, callback) {
     if (params.length) {
       event.path += '?' + params.join('&');
     }
+    
+    // TODO this will be uneccessary when API Gateway supports wildcard paths
+    for (var key in event.pathParams) {
+      event.path = event.path.replace(
+        '/{' + key + '}', '/' + event.pathParams[key]
+      );
+    }
 
     var requestOptions = {
       method: event.method,

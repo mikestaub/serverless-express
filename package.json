@@ -1,6 +1,6 @@
 {
   "name": "serverless-express",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
   "repository": {

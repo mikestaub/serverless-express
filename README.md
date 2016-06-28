@@ -74,7 +74,15 @@ Dont't forget to add this line in your s-function.json endpoint config:
 # Important
 Make sure that process.env.NODE_ENV='production' in your deployed lambda function. When it is not, the http server closes itself after each request to be compatible with the serverless-offline module. The serverless-offline module recreates the function for every request, so to keep the socket available for all requests we must release it after responding.
 
-# Summary
+# Support Deeply Nested Routes (workaround)
+If your express app needs to handle a route that is path of n deep, you will need to create n endpoint definitions in your s-templates.yaml file, for every http method. This is an annoying shortcoming of AWS API Gateway which means you cannot support routes that are infinite levels deep. Hopefully in the future, APIG will support wildcard paths so we will not have to explicity define each possible endpoint. Until then, the workaround is to copy each endpoint definition in the array and only change the "path" property to include the embedded param. For example, if I know my express app only needs to support paths that are 3 levels deep, I will create 3 versions of each endpoint with "path" properties like so:
+```
+"path": "/api/{1}"
+"path": "/api/{1}/{2}"
+"path": "/api/{1}/{2}/{3}"
+```
+
+# Implementation Summary
 This module will create an HTTP server with the express app that it is wrapping, and binds it to a local unix socket within the docker container. It will then construct an HTTP request from the lambda event parameters, send that request to the local socket, wait for the express app to respond to that request, and then forward that response from express back through the API Gateway. This allows you to use your normal express app unchanged to process requests to your serverless function, with minumum performance overhead. Just make sure you have all the neccessary endpoints defined in your s-function.json file.
 
 [npm-url]: https://npmjs.org/package/serverless-express
