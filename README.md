@@ -2,6 +2,8 @@
 [![NPM version][npm-version-image]][npm-url]
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
+#**[DEPRECATED]**
+## in favor of https://github.com/awslabs/aws-serverless-express
 # Goal
 Run your unmodified express app on AWS Lambda via the serverless framework.
 
