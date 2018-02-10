@@ -3,14 +3,9 @@
   "version": "1.2.1",
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikestaub/serverless-express.git"
+  "scripts": {
+    "test": "mocha"
   },
-  "bugs": {
-    "url": "https://github.com/mikestaub/serverless-express/issues"
-  },
-  "homepage": "https://github.com/mikestaub/serverless-express#readme",
   "keywords": [
     "Serverless",
     "Express",
@@ -20,5 +15,9 @@
     "Nodejs"
   ],
   "author": "Michael Staub",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "lodash": "^4.17.5"
+  }
 }
