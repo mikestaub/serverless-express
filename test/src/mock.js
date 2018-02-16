@@ -29,3 +29,28 @@ exports.generate = ()=>{
         _.clone(exports.options)
     ]
 }
+
+exports.apiGatewayEvent = (config)=>{
+    let createEvent = require('aws-event-mocks');
+
+    config = config || {}
+
+    let path = config.path || '/'
+    let body = config.body || {}
+    let query = config.query || {}
+
+    return createEvent({
+        template: 'aws:apiGateway',
+        merge: {
+            body: body,
+            path: path,
+            query: query
+        }
+    })
+   
+}
+
+exports.lambdaContext = ()=>{
+    const context = require('aws-lambda-mock-context')
+    return context()
+}

@@ -4,7 +4,8 @@
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch"
   },
   "keywords": [
     "Serverless",
@@ -17,7 +18,24 @@
   "author": "Michael Staub",
   "license": "MIT",
   "devDependencies": {
+    "aws-event-mocks": "github:serverless/aws-event-mocks",
+    "aws-lambda-mock-context": "^3.1.1",
     "chai": "^4.1.2",
-    "lodash": "^4.17.5"
+    "jest": "^22.2.2",
+    "lodash": "^4.17.5",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.1.3",
+    "express": "^4.16.2",
+    "serverless": "^1.26.0"
+  },
+  "jest": {
+    "verbose": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/test/"
+    ]
   }
 }

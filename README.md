@@ -5,9 +5,9 @@ Make express apps compatible with serverless framework.
 Ensure compatibility with serverless-offline plugin.
 
 Works with provider :
-- [x] Amazon Web Service - Lambda
-- [ ] Google Cloud Platform - Cloud functions <span style="color:lightgrey"> in development </span>
-- [ ] Microsoft Azure - Cloud functions <span style="color:lightgrey"> in development </span>
+  - [x] Amazon Web Service - Lambda
+  - [x] Google Cloud Platform - Cloud functions <span style="color:lightgrey"> in development </span>
+  - [ ] Microsoft Azure - Cloud functions <span style="color:lightgrey"> in development </span>
 
 ## Instalation
 
@@ -20,7 +20,6 @@ Works with provider :
 inside your project's serverless.yml file add ``` serverless-express`` to the plugin list inside serverless.yml
 
 It should look something like this:
-
 ```YAML
 plugins:
   - serverless-offline
@@ -28,3 +27,4 @@ plugins:
 ```
 
 ### then, in your hanlder file ...
+
