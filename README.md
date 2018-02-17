@@ -1,6 +1,6 @@
 # :package: :sparkles: Serverless Express
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
-[![serverless](/iliasbhal/serverless-express/raw/master/coverage_badge.png)](http://www.serverless.com) 
+[![serverless](/coverage_badge.png)](http://www.serverless.com) 
 
 
 Make express apps compatible with serverless framework. 
