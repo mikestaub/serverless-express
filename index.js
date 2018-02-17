@@ -1,115 +1,47 @@
-/**
- * serverless-express
- *
- * @author Michael Staub
- */
+'use strict';
+let _ = require('lodash')
+let tdd = require('./test/_tdd')
 
-var http = require('http');
+module.exports = class ServerlessExpressPlugin {
 
-// closure vars
-var _ready = false;
-var _server = null;
-var _socket = null;
+  constructor(serverless, options) {
+    this.serverless = serverless
+    this.environment = this.serverless.variables.service.provider.environment
+    this.providerName = this.serverless.variables.service.provider.name
 
-/**
- * Bind the http server to the local unix socket. We do this in a separate
- * function called outside of the lambda handler so we don't call it on every
- * invocation of the function.
- * @param {Object} app the express app
- * @param {String} [socket] location of the unix socket to listen on
- */
-var listen = function(app, socket) {
-  _socket = socket || '/tmp/local';
-  _server = http.createServer(app);
-  _server.listen(_socket, function(err) {
-    if (err) {
-      throw err;
-    }
-    _ready = true;
-  });
-};
+    // set environment variable SERVERLESS_EXPRESS_PLATFORM to aws, azure, google, etc
+    this._initilialize()
 
-/**
- * Send an http request to the local unix socket and wait for a response.
- * Then forward the response body back to the api gateway via the bound
- * lambda context object.
- * @param {Object} options the httpOptions object
- */
-var _sendRequest = function(options) {
-  var context = this;
-  var responseBody = '';
-  var req = http.request(options, function(res) {
-    res.on('data', function(chunk) {
-      responseBody += chunk.toString('utf8');
-    });
-    res.on('end', function() {
-      context.succeed(responseBody);
-      if (process.env.NODE_ENV !== 'production') {
-        _server.close(); // for serverless-offline compatibility
-      }
-    });
-  })
-  .on('error', function(err) {
-    context.fail(err);
-  });
-  req.end();
-};
+    this.commands = {
+    
+    };
 
-/**
- * Function that is invoked on every request to the lambda function.
- * Calls the internal _sendRequest() function to process the request.
- * @param {Object} [options] optional http request paramaters
- * @param {Function} [callback] optional callback called before request handling
- */
-var handler = function(options, callback) {
-  if (arguments.length === 1 && options instanceof Function) {
-    callback = options;
-    options = {};
+    this.hooks = {
+
+    };
+
+    return this.serverless
   }
-  return function(event, context) {
-    if (callback) {
-      callback(event, context);
-    }
-    
-    // append query parameters
-    var params = [];
-    for (var key in event.queryParams) {
-      params.push(key + '=' + event.queryParams[key]);
-    }
-    if (params.length) {
-      event.path += '?' + params.join('&');
-    }
-    
-    // TODO this will be uneccessary when API Gateway supports wildcard paths
-    for (var key in event.pathParams) {
-      event.path = event.path.replace(
-        '/{' + key + '}', '/' + event.pathParams[key]
-      );
-    }
 
-    var requestOptions = {
-      method: event.method,
-      path: event.path,
-      headers: event.headers,
-      body: event.body,
-      socketPath: _socket
-    };
+  _initilialize(){
+    this.testPlatform()
+    this.setPlatformEnvironment()
+  }
 
-    // merge user options
-    for (var key in options) {
-      requestOptions[key] = options[key];
-    }
+    // will set environment variable 
+    // will be accessible through process.env
+  setPlatformEnvironment(){
+    this.environment['SERVERLESS_EXPRESS_PLATFORM'] = this.providerName
+    process.env['SERVERLESS_EXPRESS_PLATFORM'] = this.providerName
+  }
 
-    if (_ready) {
-      _sendRequest.call(context, requestOptions);
-    }
-    else {
-      _server.on('listening', _sendRequest.bind(context, requestOptions));
-    };
-  };
-};
+  // if platform is not suported 
+  // it will throw an error during intialisation
+  testPlatform(){
+    if( _.includes(tdd.supported_providers, this.providerName ) ){ return }
+    throw new Error(`Serverless Express Error: provider is not supported yet`)
+  }
 
-module.exports = {
-  listen: listen,
-  handler: handler
-};
+}
+
+  

@@ -1,2 +1,11 @@
+
+
+# ignore folders
+node_modules
+coverage
+
+
+#other
 npm-debug.log*
+.coveralls.yml
 .npm

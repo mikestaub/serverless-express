@@ -1,0 +1,1 @@
+module.exports = require('aws-serverless-express/middleware').eventContext()

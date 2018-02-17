@@ -3,14 +3,11 @@
   "version": "1.2.1",
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikestaub/serverless-express.git"
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "deploy": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && git push origin master"
   },
-  "bugs": {
-    "url": "https://github.com/mikestaub/serverless-express/issues"
-  },
-  "homepage": "https://github.com/mikestaub/serverless-express#readme",
   "keywords": [
     "Serverless",
     "Express",
@@ -20,5 +17,28 @@
     "Nodejs"
   ],
   "author": "Michael Staub",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "aws-event-mocks": "github:serverless/aws-event-mocks",
+    "aws-lambda-mock-context": "^3.1.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "jest": "^22.2.2",
+    "lodash": "^4.17.5",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.1.3",
+    "express": "^4.16.2",
+    "serverless": "^1.26.0"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/test/"
+    ]
+  }
 }
