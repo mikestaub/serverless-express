@@ -1,50 +1,7 @@
 # :package: :sparkles: Serverless Express
-[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) <div class="badge">
-  <span class="badge_text grey">coverage</span>
-  <span class="badge_text green">100%</span>
-  <div class="shadow"></div>
-</div> 
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
+[![serverless](/iliasbhal/serverless-express/raw/master/coverage_badge.png)](http://www.serverless.com) 
 
-<style>
-  .badge {
-    display: inline-block;
-    position: relative;
-    top: -1px;
-    height: 20px;
-    color: white;
-    background: grey;
-    font-size: 12px;
-    border-radius: 3px;
-    align-items: center;
-    overflow: hidden;
-    text-spacing: 0px;
-  }
-  .badge_text {
-    display: inline-flex;
-    padding: 0px 7px;
-    height: 100%;
-    margin: 0px;
-    align-items: center;
-    text-shadow: 0px 1px 1px #010101;
-    /* vertical-align: bottom; */
-  }
-  .shadow {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    /* hei */
-    box-shadow: 0px 0px 20px 3px black;
-    opacity: 0.3;
-  }
-  .grey {
-    background: #555;
-  }
-  .green {
-    margin-left: -2px;
-    background: #4c1;
-  }
-</style>
 
 Make express apps compatible with serverless framework. 
 Ensure compatibility with serverless-offline plugin.
