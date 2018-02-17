@@ -1,5 +1,8 @@
+node_modules
+coverage
+
+
+
 npm-debug.log*
-node_modules/
-coverage/
 .coveralls.yml
 .npm
