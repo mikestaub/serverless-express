@@ -1,25 +1,50 @@
 # :package: :sparkles: Serverless Express
-[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) <svg xmlns="http://www.w3.org/2000/svg" width="106" height="20" style="display: inline-block;">
-    <linearGradient id="b" x2="0" y2="100%">
-        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-        <stop offset="1" stop-opacity=".1"/>
-    </linearGradient>
-    <mask id="a">
-        <rect width="106" height="20" rx="3" fill="#fff"/>
-    </mask>
-    <g mask="url(#a)">
-        <path fill="#555" d="M0 0h60v20H0z"/>
-        <path fill="#4c1" d="M60 0h46v20H60z"/>
-        <path fill="url(#b)" d="M0 0h106v20H0z"/>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="30" y="15" fill="#010101" fill-opacity=".3">coverage</text>
-        <text x="30" y="14">coverage</text>
-        <text x="82" y="15" fill="#010101" fill-opacity=".3">100%</text>
-        <text x="82" y="14">100%</text>
-    </g>
-<div xmlns="" id="divScriptsUsed" style="display: none"/>
-</svg>
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) <div class="badge">
+  <span class="badge_text grey">coverage</span>
+  <span class="badge_text green">100%</span>
+  <div class="shadow"></div>
+</div> 
+
+<style>
+  .badge {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    height: 20px;
+    color: white;
+    background: grey;
+    font-size: 12px;
+    border-radius: 3px;
+    align-items: center;
+    overflow: hidden;
+    text-spacing: 0px;
+  }
+  .badge_text {
+    display: inline-flex;
+    padding: 0px 7px;
+    height: 100%;
+    margin: 0px;
+    align-items: center;
+    text-shadow: 0px 1px 1px #010101;
+    /* vertical-align: bottom; */
+  }
+  .shadow {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    /* hei */
+    box-shadow: 0px 0px 20px 3px black;
+    opacity: 0.3;
+  }
+  .grey {
+    background: #555;
+  }
+  .green {
+    margin-left: -2px;
+    background: #4c1;
+  }
+</style>
 
 Make express apps compatible with serverless framework. 
 Ensure compatibility with serverless-offline plugin.
