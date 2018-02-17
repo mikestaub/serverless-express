@@ -4,7 +4,7 @@
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose --coverage",
     "test:watch": "jest --verbose --watch"
   },
   "keywords": [
@@ -21,6 +21,7 @@
     "aws-event-mocks": "github:serverless/aws-event-mocks",
     "aws-lambda-mock-context": "^3.1.1",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "jest": "^22.2.2",
     "lodash": "^4.17.5",
     "sinon": "^4.3.0",
@@ -33,6 +34,7 @@
   },
   "jest": {
     "verbose": true,
+    "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/test/"
