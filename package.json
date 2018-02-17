@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watch",
-    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls "
+    "push:origin": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && git push origin master"
   },
   "keywords": [
     "Serverless",
