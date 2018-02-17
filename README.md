@@ -26,7 +26,7 @@ yarn add serverless-express
 
 ### 1 - Add it to your serverless.yml
 
-inside your project's serverless.yml file add ``` serverless-express`` to the plugin list inside serverless.yml
+inside your project's serverless.yml file add ```serverless-express``` to the plugin list inside serverless.yml
 
 It should look something like this:
 ```YAML
