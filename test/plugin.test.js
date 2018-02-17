@@ -18,7 +18,7 @@ describe('serverless-express plugin', function() {
 
     it('should call initialize method when the plugin gets instantiated', function(){
       let sls_plugin = require('serverless-express')
-      let spy_initilialize = sinon.spy(sls_plugin.prototype, '_initilialize' );
+      let spy_initilialize = sinon.spy(sls_plugin.prototype, '_initialize' );
 
       let params = mock.generate()
       let serverless = params[0]
@@ -40,7 +40,6 @@ describe('serverless-express plugin', function() {
 
       expect(spy_testPlatform).to.have.been.called
       expect( spy_setPlatformEnvironment).to.have.been.calledAfter( spy_testPlatform )
-
     })
 
     it('should throw an error if the provider is not  supported yet', function(){
@@ -75,9 +74,9 @@ describe('serverless-express plugin', function() {
     it("should set providerName as environment variable when it's a supported provider", function(){
 
       tdd.supported_providers.forEach((providerName)=>{
-        let serverless = initPlugin({ provider: providerName})
+        let plugin = initPlugin({ provider: providerName})
         
-        expect(serverless.variables.service.provider.environment['SERVERLESS_EXPRESS_PLATFORM'])
+        expect(plugin.serverless.variables.service.provider.environment['SERVERLESS_EXPRESS_PLATFORM'])
         .to.equal(providerName)
 
         expect(process.env['SERVERLESS_EXPRESS_PLATFORM'])
@@ -86,5 +85,17 @@ describe('serverless-express plugin', function() {
       })
 
     })
+
+
+    // when no environment variables are provided inside serverless.yml
+    // the environment object is undefined by default, so we have to define it first
+    // before setting any environement variables, otherwise it will throw an error
+    // because we will be trying to modify an object that is inexistant.
+    it("should create serverless environment object if it's undefined", function(){
+      let plugin = initPlugin({ noEnv: true, noInit: true })
+      expect( plugin.environment ).to.deep.equal(new Object())
+      expect(initPlugin.bind(null, { noEnv: true } )).to.not.throw()
+    })
+
 
 });

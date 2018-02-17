@@ -36,6 +36,9 @@ plugins:
   - serverless-express # <- like so
 ```
 
+*NB: In order to automatically know on which provider the function is executed, 
+the plugin asks serverless to set ```SERVERLESS_EXPRESS_PLATFORM``` as an environment variable. The plugin uses it internally*
+
 ### 2 - Use serverless-express/express
 
 In the head of your express app file :
