@@ -1,28 +1,6 @@
 # :package: :sparkles: Serverless Express
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
-
-<svg xmlns="http://www.w3.org/2000/svg" width="106" height="20" style="display: inline-block;">
-    <linearGradient id="b" x2="0" y2="100%">
-        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-        <stop offset="1" stop-opacity=".1"/>
-    </linearGradient>
-    <mask id="a">
-        <rect width="106" height="20" rx="3" fill="#fff"/>
-    </mask>
-    <g mask="url(#a)">
-        <path fill="#555" d="M0 0h60v20H0z"/>
-        <path fill="#4c1" d="M60 0h46v20H60z"/>
-        <path fill="url(#b)" d="M0 0h106v20H0z"/>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="30" y="15" fill="#010101" fill-opacity=".3">coverage</text>
-        <text x="30" y="14">coverage</text>
-        <text x="82" y="15" fill="#010101" fill-opacity=".3">100%</text>
-        <text x="82" y="14">100%</text>
-    </g>
-<div xmlns="" id="divScriptsUsed" style="display: none"/>
-</svg>
-
+[![Coverage Status](http://coveralls.io/repos/iliasbhal/serverless-express/badge.svg?branch=master)](https://coveralls.io/r/iliasbhal/serverless-express?branch=master)
 Make express apps compatible with serverless framework. 
 Ensure compatibility with serverless-offline plugin.
 
@@ -41,7 +19,6 @@ or for yarn users
 ```
 yarn add serverless-express
 ```
-
 
 ## Usage
 
