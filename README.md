@@ -1,4 +1,4 @@
-# :package: :sparkles: Serverless Express
+# :package: :sparkles: Serverless Express Plugin
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
 [![Coverage Status](https://coveralls.io/repos/github/iliasbhal/serverless-express/badge.svg?branch=master)](https://coveralls.io/github/iliasbhal/serverless-express?branch=master)
 [![GitHub license](https://img.shields.io/badge/licence-MIT-brightgreen.svg)](https://github.com/iliasbhal/serverless-express)
@@ -8,9 +8,9 @@ Make express apps compatible with serverless framework.
 Ensure compatibility with serverless-offline plugin.
 
 Works with provider :
-  - [x] Amazon Web Service - Lambda
-  - [x] Google Cloud Platform - Cloud functions <span style="color:lightgrey"> in development </span>
-  - [ ] Microsoft Azure - Cloud functions <span style="color:lightgrey"> in development </span>
+  - [x] **Amazon Web Service - Lambda**
+  - [x] **Google Cloud Platform - Cloud functions**
+  - [ ] Microsoft Azure - Cloud functions | *in development*
 
 ## Instalation
 Type this command inside your terminal
@@ -88,7 +88,7 @@ exports.handler = handler(app)
 // that's it ;)
 ```
 
-### 4 - Finnished !
+### 4 - Finished !
 
 Now that everything is done, you can get back to work and enjoy serverless and express in the same time ;)
 
