@@ -1,6 +1,8 @@
 # :package: :sparkles: Serverless Express
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
-[![Coverage Status](http://coveralls.io/repos/iliasbhal/serverless-express/badge.svg?branch=master)](https://coveralls.io/r/iliasbhal/serverless-express?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/iliasbhal/serverless-express/badge.svg?branch=master)](https://coveralls.io/github/iliasbhal/serverless-express?branch=master)
+
+
 Make express apps compatible with serverless framework. 
 Ensure compatibility with serverless-offline plugin.
 

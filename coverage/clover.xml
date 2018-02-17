@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518834903009" clover="3.2.0">
-  <project timestamp="1518834903010" name="All files">
+<coverage generated="1518836044479" clover="3.2.0">
+  <project timestamp="1518836044480" name="All files">
     <metrics statements="39" coveredstatements="39" conditionals="8" coveredconditionals="8" methods="12" coveredmethods="12" elements="59" coveredelements="59" complexity="0" loc="39" ncloc="39" packages="2" files="5" classes="5">
       <package name="serverless-express">
         <metrics statements="35" coveredstatements="35" conditionals="8" coveredconditionals="8" methods="11" coveredmethods="11"/>

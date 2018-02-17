@@ -4,8 +4,9 @@
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage",
-    "test:watch": "jest --verbose --watch"
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls "
   },
   "keywords": [
     "Serverless",
