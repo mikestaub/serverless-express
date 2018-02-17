@@ -16,7 +16,7 @@ let initPlugin = require('./src/init-plugin')
 
 describe('serverless-express plugin', function() {
 
-    it('should call initialize method when the plugin gets instanciated', function(){
+    it('should call initialize method when the plugin gets instantiated', function(){
       let sls_plugin = require('serverless-express')
       let spy_initilialize = sinon.spy(sls_plugin.prototype, '_initilialize' );
 
@@ -25,9 +25,7 @@ describe('serverless-express plugin', function() {
       let options = params[1]
       new sls_plugin(serverless, options)
 
-      // console.log( expect(spy_initilialize).to.have.been.called )
       expect(spy_initilialize).to.have.been.called
-
     })
 
     it('should initialize the plugin in the right sequence', function(){

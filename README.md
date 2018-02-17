@@ -39,7 +39,7 @@ plugins:
 ### 2 - Use serverless-express/express
 
 In the head of your express app file :
-- Replace `equire('express')` by `require('serverless-express/express')`
+- Replace `require('express')` by `require('serverless-express/express')`
 - Make you app exportable
 
 it should look like this:

@@ -1,5 +1,3 @@
-
-// let expect = require('chai').expect;
 const { expect } = require('chai'); 
 let _ = require('lodash')
 let path = require('path')
@@ -24,7 +22,7 @@ describe('serverless-express handler', function() {
       })
 
        tdd.supported_providers.forEach((provider)=>{
-          it(`should handle express correclty with ${provider}`, function(){
+          it(`should handle express correctly with ${provider}`, function(){
               initServerless({provider: provider})
               switch(provider){
                 case 'aws': test_handler_with_aws(); break;
