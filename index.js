@@ -6,11 +6,13 @@ module.exports = class ServerlessExpressPlugin {
 
   constructor(serverless, options) {
     this.serverless = serverless
+
+    this.serverless.variables.service.provider.environment = this.serverless.variables.service.provider.environment || {}
     this.environment = this.serverless.variables.service.provider.environment
     this.providerName = this.serverless.variables.service.provider.name
 
     // set environment variable SERVERLESS_EXPRESS_PLATFORM to aws, azure, google, etc
-    this._initilialize()
+    this._initialize()
 
     this.commands = {
     
@@ -19,11 +21,9 @@ module.exports = class ServerlessExpressPlugin {
     this.hooks = {
 
     };
-
-    return this.serverless
   }
 
-  _initilialize(){
+  _initialize(){
     this.testPlatform()
     this.setPlatformEnvironment()
   }

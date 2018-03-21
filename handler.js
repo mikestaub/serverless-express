@@ -1,8 +1,10 @@
-// on your hanlder function
-// return require('serverless-express/handler)
-// 
+module.exports = handler
 
-module.exports = (express)=>{
+/**
+ * @param {string} express your express app
+ * @returns {function} a fully configured handler function for your endpoint
+ */
+function handler(express){
     let platform = process.env['SERVERLESS_EXPRESS_PLATFORM']
     switch(platform){
         case 'aws': return aws_lambda_handle(express);
