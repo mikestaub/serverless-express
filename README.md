@@ -1,5 +1,6 @@
 # :package: :sparkles: Serverless Express Plugin
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) 
+[![npm version](https://badge.fury.io/js/serverless-express.svg)](https://badge.fury.io/js/serverless-express)
 [![Coverage Status](https://coveralls.io/repos/github/iliasbhal/serverless-express/badge.svg?branch=master)](https://coveralls.io/github/iliasbhal/serverless-express?branch=master)
 [![GitHub license](https://img.shields.io/badge/licence-MIT-brightgreen.svg)](https://github.com/iliasbhal/serverless-express/blob/master/LICENSE)
 
