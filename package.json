@@ -1,6 +1,6 @@
 {
   "name": "serverless-express",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Run express apps on AWS λ easily.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,11 @@
     "APIG",
     "Nodejs"
   ],
-  "author": "Michael Staub",
+  "author": "Michael Staub, Ilias Bhallil",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikestaub/serverless-express"
+  },
   "license": "MIT",
   "devDependencies": {
     "aws-event-mocks": "github:serverless/aws-event-mocks",
