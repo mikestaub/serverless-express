@@ -1,12 +1,8 @@
 const express = require('express')
 
 
-let slsExpress = ()=>{
-    return implement(express())
-}
-
+let slsExpress = () => implement(express())
 Object.setPrototypeOf(slsExpress, express)
-
 module.exports = slsExpress
 
 
