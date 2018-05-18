@@ -3,16 +3,7 @@ const express = require('express')
 
 let slsExpress = () => implement(express())
 Object.setPrototypeOf(slsExpress, express)
-module.exports = slsExpress
-
-
-
-
-
-
-
-
-
+module.exports = slsExpress 
 
 function implement(app){
     switch( process.env.SERVERLESS_EXPRESS_PLATFORM ){
