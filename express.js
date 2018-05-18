@@ -1,7 +1,18 @@
 const express = require('express')
-module.exports = ()=>{
-    return implement(express())
-}
+
+
+let slsExpress = () => implement(express())
+Object.setPrototypeOf(slsExpress, express)
+module.exports = slsExpress
+
+
+
+
+
+
+
+
+
 
 function implement(app){
     switch( process.env.SERVERLESS_EXPRESS_PLATFORM ){
@@ -10,7 +21,6 @@ function implement(app){
         default: return app
     }
 }
-
 
 // implement aws middleware if platform is 'aws'
 
