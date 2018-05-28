@@ -6,6 +6,11 @@ Object.setPrototypeOf(slsExpress, express)
 module.exports = slsExpress 
 
 function implement(app){
+    app.use((req, res, next)=>{
+        res.append('Access-Control-Allow-Origin', '*');
+        next()
+    })    
+
     switch( process.env.SERVERLESS_EXPRESS_PLATFORM ){
         case 'aws': return aws_express(app);
         case 'google': return google_express(app);
