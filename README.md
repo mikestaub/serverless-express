@@ -96,3 +96,9 @@ exports.handler = handler(app)
 
 Now that everything is done, you can get back to work and enjoy serverless and express in the same time ;)
 
+
+
+### Todo 
+
+- [ ] create "serverless express yaml" command that updates the serverless.yml file with all the endpoints of the express app
+
