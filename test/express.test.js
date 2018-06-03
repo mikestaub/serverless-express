@@ -7,6 +7,7 @@ let tdd = require('./_tdd')
 let express = require('express')
 let sls_express = require('serverless-express/express')
 let mock = require('./src/mock')
+var request = require('supertest');
 
 let initPlugin = require('./src/init-plugin')
 let aws_middle = require('../src/aws/aws_middleware')
@@ -69,6 +70,38 @@ describe("serverless-express express", function() {
 
       let injected = app._router.stack.filter( layer => layer && layer.handle == aws_middle ).length == 1
       expect(injected).to.equal( provider == 'aws')
+
+    })
+
+  })
+
+  it('should Access-Control-Allow-Origin to everyone by defualt', function(done){
+    
+    let testIsCompleted = false
+    let testRunned = 0
+    tdd.supported_providers.forEach((provider)=>{
+
+      initPlugin({provider: provider})
+      let app = sls_express()
+          app.get('*', (req, res)=>{
+            res.json(res)
+           }) // if we don't register a route the middleware stack is not exposed
+
+           request(app).get('/')
+                       .then((res)=>{
+                          testRunned += 1
+                          console.log(res)
+                          expect(res.headers['access-control-allow-origin']).to.equal('*')
+
+                          if( testRunned == tdd.supported_providers.length - 1){
+                            done()
+                          }
+
+                       })
+
+
+      // let injected = app._router.stack.filter( layer => layer && layer.handle == aws_middle ).length == 1
+      // expect(injected).to.equal( provider == 'aws')
 
     })
 
