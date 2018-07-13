@@ -32,7 +32,6 @@ exports.generate = ()=>{
 
 exports.apiGatewayEvent = (config)=>{
     let createEvent = require('aws-event-mocks');
-
     config = config || {}
 
     let path = config.path || '/'

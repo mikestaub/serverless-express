@@ -78,31 +78,43 @@ describe("serverless-express express", function() {
   it('should Access-Control-Allow-Origin to everyone by defualt', function(done){
     
     let testIsCompleted = false
-    let testRunned = 0
+    let testsRunned = 0
+    let testsToRun = tdd.supported_providers.length 
+
     tdd.supported_providers.forEach((provider)=>{
 
-      initPlugin({provider: provider})
+      initPlugin({provider: 'google'})
       let app = sls_express()
           app.get('*', (req, res)=>{
             res.json(res)
            }) // if we don't register a route the middleware stack is not exposed
 
-           request(app).get('/')
-                       .then((res)=>{
-                          testRunned += 1
-                          console.log(res)
-                          expect(res.headers['access-control-allow-origin']).to.equal('*')
+          //  console.log(mock.apiGatewayEvent())
+          // // done()
+          if( provider == 'aws'){
 
-                          if( testRunned == tdd.supported_providers.length - 1){
-                            done()
-                          }
+              request(app).get('/', mock.apiGatewayEvent() )
+              .then( (res)=>{
+                let response = res.res
+                let responseHeader = response.headers
+                expect(responseHeader['access-control-allow-origin']).to.equal('*')
+                testsRunned = testsRunned + 1
+                if( testsRunned == testsToRun){ done()  }
+              })
 
-                       })
+          } else {
+              
+              request(app).get('/')
+              .then((res)=>{
+                let response = res.res
+                let responseHeader = response.headers
+                 expect(res.headers['access-control-allow-origin']).to.equal('*')
+                 testsRunned = testsRunned + 1
+                 if( testsRunned == testsToRun ){ done()  }
+              })
 
-
-      // let injected = app._router.stack.filter( layer => layer && layer.handle == aws_middle ).length == 1
-      // expect(injected).to.equal( provider == 'aws')
-
+          }
+         
     })
 
   })
