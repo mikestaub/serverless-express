@@ -75,7 +75,7 @@ describe("serverless-express express", function() {
 
   })
 
-  it('should Access-Control-Allow-Origin to everyone by defualt', function(done){
+  it('should Access-Control-Allow-Origin to everyone by default', function(done){
     
     let testIsCompleted = false
     let testsRunned = 0
