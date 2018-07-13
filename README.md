@@ -28,10 +28,17 @@ yarn add serverless-express
 
 ### 1 - Add it to your serverless.yml
 
-inside your project's serverless.yml file add ```serverless-express``` to the plugin list inside serverless.yml
+inside your project's serverless.yml file add ```serverless-express``` to the plugin list inside serverless.yml. Also add the handler to the ```functions``` so that all http events are handled by our express app.
 
 It should look something like this:
 ```YAML
+functions:
+  app:
+    handler: handler.handler #assuming your handler file is handler.js
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
 plugins:
   - serverless-foo # <- fake name
   - serverless-express # <- like so
