@@ -5,7 +5,8 @@ const providerByEnv = {
     [process.env.SERVERLESS_EXPRESS_PLATFORM]:  process.env.SERVERLESS_EXPRESS_PLATFORM, // keep bacward compatibility;
 
     'aws': ['AWS_REGION', 'AWS_LAMBDA_FUNCTION_NAME', 'AWS_ACCESS_KEY_ID'],
-    'google': ['GCLOUD_PROJECT', 'GCP_PROJECT', 'GCP_PROJECT']
+    'google': ['GCLOUD_PROJECT', 'GCP_PROJECT', 'GCP_PROJECT'],
+    'azure': ['AzureWebJobsDashboard'],
 }
 
 /**
