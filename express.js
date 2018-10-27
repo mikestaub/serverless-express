@@ -6,6 +6,10 @@ Object.setPrototypeOf(slsExpress, express)
 module.exports = slsExpress 
 
 function implement(app){
+    app.use((req, res, next)=>{
+        console.log('hi');
+        next()
+    })
     app.use(allowAccessControlOriginMiddleware)  //  res.append('Access-Control-Allow-Origin', '*');
     switch( process.env.SERVERLESS_EXPRESS_PLATFORM ){
         case 'aws': return aws_express(app);
@@ -15,7 +19,6 @@ function implement(app){
 }
 
 // implement aws middleware if platform is 'aws'
-
 function aws_express(app){
     const aws_middleware = require('./src/aws/aws_middleware')
     app.use(aws_middleware)  

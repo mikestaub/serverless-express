@@ -33,10 +33,10 @@ describe('serverless-express handler', function() {
        })
 
 
-       it('should throw error if a handler is used inside not-supported provider', function(){
+       it('should throw error if a handler is used inside not-supported/not-recognized provider', function(){
           process.env['SERVERLESS_EXPRESS_PLATFORM'] = 'fakeCloudProviderName'
-          let handler = require('serverless-express/handler')
-          expect(handler).to.throw()
+          let handler = require('../handler');
+          expect(handler).to.throw();
        })
 
 });
