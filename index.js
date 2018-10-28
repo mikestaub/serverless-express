@@ -1,5 +1,4 @@
 'use strict';
-let _ = require('lodash')
 let tdd = require('./test/_tdd')
 
 module.exports = class ServerlessExpressPlugin {
@@ -38,7 +37,7 @@ module.exports = class ServerlessExpressPlugin {
   // if platform is not suported 
   // it will throw an error during intialisation
   testPlatform(){
-    if( _.includes(tdd.supported_providers, this.providerName ) ){ return }
+    if( tdd.supported_providers.find( n => n === this.providerName ) ){ return }
     throw new Error(`Serverless Express Error: provider is not supported yet`)
   }
 

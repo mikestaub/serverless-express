@@ -1,7 +1,7 @@
 let mock = require('./mock')
 
 module.exports = function(o){
-    let sls_express = require('serverless-express')
+    let sls_express = require('./../../express');
 
     let options = o || {}
     let mocks = mock.generate()
