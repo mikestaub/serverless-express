@@ -41,6 +41,10 @@ exports.apiGatewayEvent = (config)=>{
     return createEvent({
         template: 'aws:apiGateway',
         merge: {
+            headers: {
+                'x-apigateway-event': true,
+                'x-apigateway-context': true
+            },
             body: body,
             path: path,
             query: query

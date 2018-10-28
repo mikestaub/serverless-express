@@ -75,7 +75,7 @@ describe("serverless-express express", function() {
 
   })
 
-  it('should Access-Control-Allow-Origin to everyone by default', function(done){
+  it('should set header Access-Control-Allow-Origin to * by default', function(done){
     
     let testIsCompleted = false
     let testsRunned = 0
@@ -83,14 +83,12 @@ describe("serverless-express express", function() {
 
     tdd.supported_providers.forEach((provider)=>{
 
-      initPlugin({provider: 'google'})
+      initPlugin({provider: provider})
       let app = sls_express()
           app.get('*', (req, res)=>{
             res.json(res)
            }) // if we don't register a route the middleware stack is not exposed
 
-          //  console.log(mock.apiGatewayEvent())
-          // // done()
           if( provider == 'aws'){
 
               request(app).get('/', mock.apiGatewayEvent() )
@@ -103,7 +101,7 @@ describe("serverless-express express", function() {
               })
 
           } else {
-              
+
               request(app).get('/')
               .then((res)=>{
                 let response = res.res

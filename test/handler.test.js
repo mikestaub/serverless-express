@@ -27,6 +27,7 @@ describe('serverless-express handler', function() {
               switch(provider){
                 case 'aws': test_handler_with_aws(); break;
                 case 'google': test_handler_with_google(); break;
+                case 'azure': test_handler_with_azure(); break;
                 default: return Promise.reject(`${ provider } is not handled properly`);
               }
           })
@@ -63,6 +64,30 @@ function test_handler_with_google(){
   let app = sls_express()
   app.get('*', ()=>{ })
   expect(sls_handler(test)).to.equal(test)
+  expect( typeof app).to.equal('function')
 }
 
+function test_handler_with_azure(){
+  let app = sls_express()
+  app.get('*', ()=>{ })
 
+  let handled = sls_handler(app);
+  expect( typeof handled).to.equal('function');
+
+  const paramNames = getArgumentNamesOfFunction(handled);
+  const rightNumberOfParams = paramNames.length == 2;
+  const rightParamNames = _.includes(['context', 'ctx', 'cx'], paramNames[0]) && _.includes(['req', 'request'], paramNames[1])
+
+  expect( rightNumberOfParams ).to.equal(true)
+  expect( rightParamNames ).to.equal(true)
+}
+
+var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+var ARGUMENT_NAMES = /([^\s,]+)/g;
+function getArgumentNamesOfFunction(func) {
+  var fnStr = func.toString().replace(STRIP_COMMENTS, '');
+  var result = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+  if(result === null)
+     result = [];
+  return result;
+}

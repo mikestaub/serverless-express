@@ -1,3 +1,3 @@
 
 
-exports.supported_providers = ['aws', 'google']
+exports.supported_providers = ['aws', 'google', 'azure']
