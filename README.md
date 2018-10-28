@@ -11,7 +11,7 @@ Ensure compatibility with serverless-offline plugin.
 Works with provider :
   - [x] **Amazon Web Service - Lambda**
   - [x] **Google Cloud Platform - Cloud functions**
-  - [ ] Microsoft Azure - Cloud functions | *in development*
+  - [x] **Microsoft Azure - Cloud functions**
 
 ## Download
 Type this command inside your terminal
@@ -88,7 +88,7 @@ const handler = require('serverless-express/handler')
 const app = require('path/to/your/express/app')
 
 
-exports.handler = handler(app)
+exports.api = handler(app)
 // that's it ;)
 ```
 
