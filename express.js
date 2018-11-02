@@ -1,3 +1,4 @@
+const provider = require('./src/detect_env');
 const express = require('express')
 const allowAccessControlOriginMiddleware = require('./src/access_control_middleare')
 
@@ -6,12 +7,8 @@ Object.setPrototypeOf(slsExpress, express)
 module.exports = slsExpress 
 
 function implement(app){
-    app.use((req, res, next)=>{
-        console.log('hi');
-        next()
-    })
     app.use(allowAccessControlOriginMiddleware)  //  res.append('Access-Control-Allow-Origin', '*');
-    switch( process.env.SERVERLESS_EXPRESS_PLATFORM ){
+    switch( provider ){
         case 'aws': return aws_express(app);
         case 'google': return google_express(app);
         default: return app
