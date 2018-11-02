@@ -7,9 +7,8 @@ const app = slsExpress();
  * @returns {function} a fully configured handler function for your endpoint
  */
 module.exports = function handler(express){
-    const handled = handle(express);
-    app.use(handled);
-    return app;
+    app.use(express);
+    return handle( app);
 }
 
 function handle(app){
