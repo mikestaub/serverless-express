@@ -50,8 +50,8 @@ function test_handler_with_aws(){
   app.get('*', ()=>{ })
 
   let handled = sls_handler(app)
-  expect( handled.name ).to.equal('bound proxy')
   expect( typeof handled).to.equal('function')
+  // test is being done at "./src/aws/aws_handler.test.js"
 }
 
 
