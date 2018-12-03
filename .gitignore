@@ -10,3 +10,4 @@ npm-debug.log*
 .coveralls.yml
 .npm
 package-lock.json
+package-lock.json
