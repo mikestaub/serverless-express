@@ -111,8 +111,8 @@ functions:
     handler: handler.handler  #assuming your handler file is handler.js
     events: 
       - http:
-          path: GET
-          method: /users
+          method: GET
+          path: /users
 
 # or like this
 # be careful, this will route every HTTP event to your function.
@@ -121,8 +121,8 @@ functions:
     handler: handler.handler 
     events: 
       - http:
+          method: ANY   
           path: /{proxy+}
-          method: ANY
 ```
 
 
