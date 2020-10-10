@@ -87,8 +87,7 @@ It should look something like this:
 const handler = require('serverless-express/handler')
 const app = require('path/to/your/express/app')
 
-
-exports.api = handler(app)
+module.exports.api = handler(app)
 // that's it ;)
 ```
 
