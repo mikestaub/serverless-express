@@ -79,7 +79,7 @@ module.exports = app
 
 
 ### 3 - In your handler file
-inside the handler file, you hanve to import ```serverless-express/handler``` and call it with your express app.
+inside the handler file, you have to import ```serverless-express/handler``` and call it with your express app.
 It should look something like this:
 
 ```js
