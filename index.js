@@ -6,9 +6,9 @@ module.exports = class ServerlessExpressPlugin {
   constructor(serverless, options) {
     this.serverless = serverless
 
-    this.serverless.variables.service.provider.environment = this.serverless.variables.service.provider.environment || {}
-    this.environment = this.serverless.variables.service.provider.environment
-    this.providerName = this.serverless.variables.service.provider.name
+    this.serverless.service.provider.environment = this.serverless.service.provider.environment || {}
+    this.environment = this.serverless.service.provider.environment
+    this.providerName = this.serverless.service.provider.name
 
     // set environment variable SERVERLESS_EXPRESS_PLATFORM to aws, azure, google, etc
     this._initialize()
